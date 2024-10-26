@@ -9,6 +9,7 @@ const WHITELISTED_PATHS = [
   "/en/refund",
   "/en/tos",
   "/api/juchatmodels",
+  "/api/svg",
   "/en/privacy",
   "/en/faq",
   "/zh/refund",
