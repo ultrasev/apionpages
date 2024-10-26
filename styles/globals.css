@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.4rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+
+  .colored {
+    --background: #ffefd5; /* Peach background */
+    --foreground: #1f1f1f; /* Dark text on light background */
+    --card: #ffe4e1; /* Misty rose cards */
+    --card-foreground: #333333; /* Dark text for cards */
+    --popover: #fdf5e6; /* Old lace for popovers */
+    --popover-foreground: #2e2e2e; /* Dark text for popovers */
+    --primary: #ff4500; /* Orange red for primary buttons */
+    --primary-foreground: #ffffff; /* White text on primary elements */
+    --secondary: #ff69b4; /* Hot pink for secondary buttons */
+    --secondary-foreground: #000000; /* Black text on secondary elements */
+    --muted: #f0e68c; /* Khaki for muted elements */
+    --muted-foreground: #3d3d3d; /* Dark grey text on muted elements */
+    --accent: #32cd32; /* Lime green for accents */
+    --accent-foreground: #202020; /* Very dark grey text on accents */
+    --destructive: #ff6347; /* Tomato for destructive actions */
+    --destructive-foreground: #fafafa; /* Off-white text on destructive elements */
+    --border: #dda0dd; /* Plum for borders */
+    --input: #add8e6; /* Light blue for inputs */
+    --ring: #ffb6c1; /* Light pink for focus rings */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-quicksand;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+.grid-pattern {
+  background: url("../public/assets/background.svg");
+  background-repeat: repeat;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/Quicksand.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-quicksand {
+  font-family: "Quicksand";
+}
+
+/* styles/globals.css */
+.image-placeholder {
+  background-color: #e0e0e0;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* tostify CSS */
+.Toastify__toast-container .Toastify__toast {
+  border-radius: 10px !important;
+}
+
+.Toastify__toast--success {
+  border-radius: 10px;
+  color: #4caf50;
+}
+
+.Toastify__toast--error {
+  border-radius: 12px;
+  color: #dc0d0d;
+}
+
+.Toastify__toast-body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.Toastify__progress-bar {
+  background-color: #4caf50;
+}
+
+.svg-inline--fa {
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+@layer utilities {
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+}
