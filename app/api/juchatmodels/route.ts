@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import fontsBase64 from "@/fonts/fontsBase64.json";
 
 export const runtime = "edge";
 
@@ -85,11 +86,23 @@ function generateTableSvg(models: ModelInfo[]): string {
     <defs>
       <style>
         @font-face {
-          font-family: 'Vollkorn';
-          src: url('https://fonts.gstatic.com/s/vollkorn/v21/0ybgGDoxxrvAnPhYGzMlQLzuMasz6Df2MHGeHmmZ.woff2') format('woff2');
+          font-family: 'SpecialElite';
+          src: url(data:application/font-woff2;charset=utf-8;base64,${fontsBase64["SpecialElite-Regular"]}) format('woff2');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
+        }
+        @font-face {
+          font-family: 'YoungSerif';
+          src: url(data:application/font-woff2;charset=utf-8;base64,${fontsBase64["YoungSerif-Regular"]}) format('woff2');
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: 'EagleLake';
+          src: url(data:application/font-woff2;charset=utf-8;base64,${fontsBase64["EagleLake-Regular"]}) format('woff2');
+          font-weight: normal;
+          font-style: normal;
         }
         .header { fill: #e2e8f0; font-weight: bold; }
         .row-even { fill: #f7fafc; }
@@ -98,7 +111,11 @@ function generateTableSvg(models: ModelInfo[]): string {
         .header text { fill: #2d3748; }
         .row-even text, .row-odd text { fill: #2d3748; }
         .backend-name {
-          font-family: 'Vollkorn', Georgia, serif;
+          font-family: 'YoungSerif', Georgia, serif;
+          font-size: 15px;
+        }
+        .front-name {
+          font-family: Georgia, serif;
           font-size: 15px;
         }
       </style>
@@ -116,7 +133,7 @@ function generateTableSvg(models: ModelInfo[]): string {
   }" dominant-baseline="middle" class="backend-name">Backend Model Name</text>
     <text x="${columnWidths[0] + columnWidths[1] + cellPadding}" y="${
     headerHeight / 2 + fontSize / 3
-  }" dominant-baseline="middle">Front Model Name</text>
+  }" dominant-baseline="middle" class="front-name">Front Model Name</text>
   `;
 
   // Draw rows
@@ -135,7 +152,7 @@ function generateTableSvg(models: ModelInfo[]): string {
     )}</text>
       <text x="${columnWidths[0] + columnWidths[1] + cellPadding}" y="${
       y + cellHeight / 2 + fontSize / 3
-    }" dominant-baseline="middle">${escapeXml(model.frontName)}</text>
+    }" dominant-baseline="middle" class="front-name">${escapeXml(model.frontName)}</text>
     `;
   });
 
