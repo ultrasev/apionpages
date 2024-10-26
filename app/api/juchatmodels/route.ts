@@ -6,7 +6,6 @@ export const runtime = "edge";
 
 export async function GET(request: NextRequest) {
   const models = await getModels();
-  console.log(models);
   const svg = generateTableSvg(models);
 
   return new NextResponse(svg, {
