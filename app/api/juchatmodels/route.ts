@@ -80,18 +80,27 @@ function generateTableSvg(models: ModelInfo[]): string {
 
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${tableWidth}" height="${tableHeight}" viewBox="0 0 ${tableWidth} ${tableHeight}">`;
 
-  // Add styles and Google Font import
+  // Update the style section
   svg += `
     <defs>
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vollkorn&amp;display=swap');
+        @font-face {
+          font-family: 'Vollkorn';
+          src: url('https://fonts.gstatic.com/s/vollkorn/v21/0ybgGDoxxrvAnPhYGzMlQLzuMasz6Df2MHGeHmmZ.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
         .header { fill: #e2e8f0; font-weight: bold; }
         .row-even { fill: #f7fafc; }
         .row-odd { fill: #edf2f7; }
         text { font-family: Arial, sans-serif; font-size: ${fontSize}px; }
         .header text { fill: #2d3748; }
         .row-even text, .row-odd text { fill: #2d3748; }
-        .backend-name { font-family: 'Vollkorn', cursive; font-size: 15px; }
+        .backend-name {
+          font-family: 'Vollkorn', Georgia, serif;
+          font-size: 15px;
+        }
       </style>
     </defs>
   `;
